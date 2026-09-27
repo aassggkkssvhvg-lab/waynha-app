@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_sky_600">#0284C7</color>
+    <color name="primary_sky_700">#0369A1</color>
+    <color name="secondary_sky_500">#0EA5E9</color>
+    <color name="accent_amber_500">#F59E0B</color>
+    <color name="success_emerald_600">#059669</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="background_light">#F8FAFC</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="border_light">#E2E8F0</color>
+</resources>

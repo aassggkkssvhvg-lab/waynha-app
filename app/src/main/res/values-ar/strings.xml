@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">وينها؟</string>
+    <string name="app_slogan">دليل العراق الذكي للخدمات والمحلات</string>
+    <string name="search_prompt_title">شنو تحتاج هسه؟</string>
+    <string name="search_prompt_subtitle">كهربائي، قطعة سيارة، مطعم، وظيفة أو فني قريب منك في محافظتك</string>
+    <string name="search_placeholder">اكتب طلبك... مثلاً: أريد كهربائي قريب، أو قطعة تويوتا</string>
+    <string name="default_location">بغداد، العراق</string>
+    <string name="use_my_location">استخدام موقعي الحالي (GPS)</string>
+    <string name="location_permission_needed">نحتاج إذن الموقع الجغرافي لعرض الفنيين والمحلات الأقرب إلى منطقتك في العراق.</string>
+    <string name="grant_permission">السماح بتحديد الموقع</string>
+    
+    <!-- Categories -->
+    <string name="cat_all">الكل</string>
+    <string name="cat_technicians">كهربائي وفنيين</string>
+    <string name="cat_auto_parts">قطع غيار سيارات</string>
+    <string name="cat_restaurants">مطاعم وأكلات</string>
+    <string name="cat_mechanics">ميكانيكي وفيتر</string>
+    <string name="cat_plumbers">سباك وصحيات</string>
+    <string name="cat_jobs">وظائف وفرص عمل</string>
+    <string name="cat_shops">محلات وأسواق</string>
+
+    <!-- Navigation & Actions -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_search">البحث والتصفية</string>
+    <string name="nav_add">أضف إعلانك</string>
+    <string name="nav_profile">حسابي</string>
+    
+    <string name="call_now">اتصال فوري</string>
+    <string name="whatsapp_chat">مراسلة واتساب</string>
+    <string name="open_in_maps">عرض على الخريطة</string>
+    <string name="add_review">إضافة تقييم</string>
+    <string name="verified_service">خدمة موثقة في وينها؟</string>
+    <string name="switch_language">English</string>
+</resources>

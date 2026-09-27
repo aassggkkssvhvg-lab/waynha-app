@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Waynha?</string>
+    <string name="app_slogan">Iraq Smart Directory for Services &amp; Shops</string>
+    <string name="search_prompt_title">What do you need right now?</string>
+    <string name="search_prompt_subtitle">Electricians, auto parts, restaurants, jobs, and technicians near you in Iraq</string>
+    <string name="search_placeholder">Search e.g. electrician nearby, Toyota parts...</string>
+    <string name="default_location">Baghdad, Iraq</string>
+    <string name="use_my_location">Use Current Location (GPS)</string>
+    <string name="location_permission_needed">Location permission is required to detect nearby services in your Iraqi district.</string>
+    <string name="grant_permission">Allow Location</string>
+    
+    <!-- Categories -->
+    <string name="cat_all">All</string>
+    <string name="cat_technicians">Technicians</string>
+    <string name="cat_auto_parts">Auto Parts</string>
+    <string name="cat_restaurants">Restaurants</string>
+    <string name="cat_mechanics">Mechanics</string>
+    <string name="cat_plumbers">Plumbers</string>
+    <string name="cat_jobs">Jobs</string>
+    <string name="cat_shops">Shops</string>
+
+    <!-- Navigation & Actions -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_add">Add Listing</string>
+    <string name="nav_profile">My Profile</string>
+    
+    <string name="call_now">Call Now</string>
+    <string name="whatsapp_chat">WhatsApp</string>
+    <string name="open_in_maps">Open in Maps</string>
+    <string name="add_review">Add Review</string>
+    <string name="verified_service">Verified in Iraq</string>
+    <string name="switch_language">العربية</string>
+</resources>
