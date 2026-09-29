@@ -9,5 +9,13 @@ enum class CategoryType(val id: String, val nameAr: String, val nameEn: String) 
     RESTAURANTS("restaurants", "مطاعم", "Restaurants"),
     JOBS("jobs", "وظائف وفرص عمل", "Jobs"),
     SHOPS("shops", "محلات وأسواق", "Shops"),
-    SERVICES("services", "خدمات أخرى", "Services")
+    SERVICES("services", "خدمات أخرى", "Services"),
+    COMPANIES("companies", "شركات", "Companies"),
+    HOSPITALS("hospitals", "مستشفيات وعيادات", "Hospitals & Clinics"),
+    PHARMACY("pharmacy", "صيدليات", "Pharmacies"),
+    SCHOOLS("schools", "مدارس وجامعات", "Schools"),
+    TEACHERS("teachers", "معلمين ومدرسين", "Teachers"),
+    OFFERS("offers", "عروض وخصومات", "Offers"),
+    FUEL("fuel", "محطات وقود", "Fuel Stations"),
+    PUBLIC_PLACES("public", "أماكن عامة", "Public Places")
 }

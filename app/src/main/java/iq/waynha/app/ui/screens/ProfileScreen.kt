@@ -47,10 +47,10 @@ fun ProfileScreen(
                         fontSize = 18.sp
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White)
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF0D1730))
             )
         },
-        containerColor = Color(0xFFF8FAFC)
+        containerColor = Color(0xFF060B1A)
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -65,7 +65,7 @@ fun ProfileScreen(
             // User card
             Card(
                 shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(18.dp)) {
@@ -92,13 +92,13 @@ fun ProfileScreen(
                                 text = userName,
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF0F172A)
+                                color = Color(0xFFF1F5FF)
                             )
                             Spacer(modifier = Modifier.height(2.dp))
                             Text(
                                 text = userPhone,
                                 fontSize = 13.sp,
-                                color = Color(0xFF64748B)
+                                color = Color(0xFFA0A8C0)
                             )
                         }
 
@@ -135,7 +135,7 @@ fun ProfileScreen(
             // Quick Settings: Language
             Card(
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(14.dp)) {
@@ -143,7 +143,7 @@ fun ProfileScreen(
                         text = if (isArabic) "الإعدادات العامة" else "Settings",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF0F172A)
+                        color = Color(0xFFF1F5FF)
                     )
                     Spacer(modifier = Modifier.height(10.dp))
 
@@ -177,7 +177,7 @@ fun ProfileScreen(
             // Favorites / Saved Section
             Card(
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(14.dp)) {
@@ -190,7 +190,7 @@ fun ProfileScreen(
                             text = if (isArabic) "الخدمات والمحلات المحفوظة (${favorites.size})" else "Saved Items (${favorites.size})",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF0F172A)
+                            color = Color(0xFFF1F5FF)
                         )
                         Icon(imageVector = Icons.Default.Favorite, contentDescription = null, tint = Color.Red, modifier = Modifier.size(18.dp))
                     }
@@ -208,7 +208,7 @@ fun ProfileScreen(
                         favorites.forEach { item ->
                             Surface(
                                 shape = RoundedCornerShape(10.dp),
-                                color = Color(0xFFF8FAFC),
+                                color = Color(0xFF060B1A),
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clickable { onSelectListing(item) }
@@ -234,7 +234,7 @@ fun ProfileScreen(
             // About "وينها؟"
             Card(
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFF1F5F9)),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF141F3D)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
@@ -242,7 +242,7 @@ fun ProfileScreen(
                         text = if (isArabic) "عن تطبيق «وينها؟» العراقي" else "About Waynha App",
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
-                        color = Color(0xFF0F172A)
+                        color = Color(0xFFF1F5FF)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
@@ -252,13 +252,13 @@ fun ProfileScreen(
                             "Native Android app built with Jetpack Compose & Kotlin for Iraq services and stores.",
                         fontSize = 12.sp,
                         lineHeight = 18.sp,
-                        color = Color(0xFF475569)
+                        color = Color(0xFFB0B8D0)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = "الإصدار: 1.0.0 (النسخة الرسمية)",
                         fontSize = 11.sp,
-                        color = Color(0xFF94A3B8)
+                        color = Color(0xFF8A93B0)
                     )
                 }
             }

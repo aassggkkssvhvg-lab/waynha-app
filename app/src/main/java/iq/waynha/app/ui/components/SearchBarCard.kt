@@ -92,12 +92,12 @@ fun SearchBarCard(
                     singleLine = true,
                     shape = RoundedCornerShape(16.dp),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedContainerColor = Color.White,
-                        unfocusedContainerColor = Color.White,
+                        focusedContainerColor = Color(0xFF0D1730),
+                        unfocusedContainerColor = Color(0xFF0D1730),
                         focusedBorderColor = Color.Transparent,
                         unfocusedBorderColor = Color.Transparent,
-                        focusedTextColor = Color(0xFF0F172A),
-                        unfocusedTextColor = Color(0xFF0F172A)
+                        focusedTextColor = Color(0xFFF1F5FF),
+                        unfocusedTextColor = Color(0xFFF1F5FF)
                     ),
                     modifier = Modifier.fillMaxWidth()
                 )

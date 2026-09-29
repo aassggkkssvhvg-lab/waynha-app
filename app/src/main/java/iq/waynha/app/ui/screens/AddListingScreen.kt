@@ -61,10 +61,10 @@ fun AddListingScreen(
                         fontSize = 18.sp
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White)
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF0D1730))
             )
         },
-        containerColor = Color(0xFFF8FAFC)
+        containerColor = Color(0xFF060B1A)
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -79,7 +79,7 @@ fun AddListingScreen(
             if (showSuccessMessage) {
                 Card(
                     shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFFECFDF5))
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF0F3A2A))
                 ) {
                     Row(
                         modifier = Modifier.padding(14.dp),

@@ -76,7 +76,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             Surface(
-                color = Color.White,
+                color = Color(0xFF0D1730),
                 shadowElevation = 2.dp
             ) {
                 Row(
@@ -110,7 +110,7 @@ fun HomeScreen(
                                     text = if (isArabic) "وينها؟" else "Waynha?",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Black,
-                                    color = Color(0xFF0F172A)
+                                    color = Color(0xFFF1F5FF)
                                 )
                                 Spacer(modifier = Modifier.width(6.dp))
                                 Surface(
@@ -129,7 +129,7 @@ fun HomeScreen(
                             Text(
                                 text = if (isArabic) "دليل الخدمات والمحلات الذكي" else "Iraq Smart Services Directory",
                                 fontSize = 10.sp,
-                                color = Color(0xFF64748B)
+                                color = Color(0xFFA0A8C0)
                             )
                         }
                     }
@@ -160,7 +160,7 @@ fun HomeScreen(
                 }
             }
         },
-        containerColor = Color(0xFFF8FAFC)
+        containerColor = Color(0xFF060B1A)
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
@@ -181,7 +181,7 @@ fun HomeScreen(
                     // Pick Governorate Button
                     Surface(
                         shape = RoundedCornerShape(12.dp),
-                        color = Color.White,
+                        color = Color(0xFF0D1730),
                         border = ButtonDefaults.outlinedButtonBorder,
                         modifier = Modifier.clickable { showLocationSheet = true }
                     ) {
@@ -203,7 +203,7 @@ fun HomeScreen(
                                     "${selectedGov.nameEn} • $selectedDistrict",
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF1E293B)
+                                color = Color(0xFFE5E9F5)
                             )
                             Spacer(modifier = Modifier.width(4.dp))
                             Icon(
@@ -218,7 +218,7 @@ fun HomeScreen(
                     // GPS Button ("استخدام الموقع الحالي")
                     Surface(
                         shape = RoundedCornerShape(12.dp),
-                        color = if (isGpsActive) Color(0xFFECFDF5) else Color.White,
+                        color = if (isGpsActive) Color(0xFF0F3A2A) else Color(0xFF0D1730),
                         border = ButtonDefaults.outlinedButtonBorder,
                         modifier = Modifier.clickable {
                             if (isGpsActive) {
@@ -268,7 +268,7 @@ fun HomeScreen(
                                     (if (isArabic) "موقعي الآن" else "My GPS"),
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = if (isGpsActive) EmeraldSuccess else Color(0xFF1E293B)
+                                color = if (isGpsActive) EmeraldSuccess else Color(0xFFE5E9F5)
                             )
                         }
                     }
@@ -299,7 +299,7 @@ fun HomeScreen(
                         text = if (isArabic) "تصنيفات الخدمات والمحلات" else "Categories",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF0F172A),
+                        color = Color(0xFFF1F5FF),
                         modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp)
                     )
                     CategoryChips(
@@ -326,7 +326,7 @@ fun HomeScreen(
                             "Available Results (${filteredListings.size})",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF0F172A)
+                        color = Color(0xFFF1F5FF)
                     )
 
                     if (isGpsActive) {
@@ -345,7 +345,7 @@ fun HomeScreen(
                 item {
                     Card(
                         shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 12.dp)
@@ -367,7 +367,7 @@ fun HomeScreen(
                                 text = if (isArabic) "لم نجد نتائج مطابقة للبحث" else "No matching results found",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 15.sp,
-                                color = Color(0xFF1E293B)
+                                color = Color(0xFFE5E9F5)
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
@@ -376,7 +376,7 @@ fun HomeScreen(
                                 else
                                     "Try different keywords or select Baghdad to view all options",
                                 fontSize = 12.sp,
-                                color = Color(0xFF64748B)
+                                color = Color(0xFFA0A8C0)
                             )
                         }
                     }

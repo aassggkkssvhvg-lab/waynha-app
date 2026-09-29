@@ -69,12 +69,12 @@ fun DetailScreen(
                         Icon(imageVector = Icons.Default.Share, contentDescription = "Share")
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White)
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF0D1730))
             )
         },
         bottomBar = {
             Surface(
-                color = Color.White,
+                color = Color(0xFF0D1730),
                 shadowElevation = 8.dp
             ) {
                 Row(
@@ -137,7 +137,7 @@ fun DetailScreen(
                 }
             }
         },
-        containerColor = Color(0xFFF8FAFC)
+        containerColor = Color(0xFF060B1A)
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
@@ -152,7 +152,7 @@ fun DetailScreen(
             item {
                 Card(
                     shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Column(modifier = Modifier.padding(18.dp)) {
@@ -166,19 +166,19 @@ fun DetailScreen(
                                     text = listing.title,
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color(0xFF0F172A)
+                                    color = Color(0xFFF1F5FF)
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
                                 Text(
                                     text = "${listing.governorate} • ${listing.district} • ${listing.addressDetails}",
                                     fontSize = 13.sp,
-                                    color = Color(0xFF64748B)
+                                    color = Color(0xFFA0A8C0)
                                 )
                             }
 
                             Surface(
                                 shape = RoundedCornerShape(10.dp),
-                                color = Color(0xFFFFFBEB)
+                                color = Color(0xFF3A2E0A)
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
@@ -195,7 +195,7 @@ fun DetailScreen(
                                         text = String.format("%.1f", listing.rating),
                                         fontSize = 13.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF92400E)
+                                        color = Color(0xFFFFC21A)
                                     )
                                 }
                             }
@@ -217,7 +217,7 @@ fun DetailScreen(
                                     Text(
                                         text = if (isArabic) "الأسعار والكشفية" else "Pricing",
                                         fontSize = 11.sp,
-                                        color = Color(0xFF0369A1)
+                                        color = Color(0xFF7CC4FF)
                                     )
                                     Text(
                                         text = listing.priceNote,
@@ -230,20 +230,20 @@ fun DetailScreen(
 
                             Surface(
                                 shape = RoundedCornerShape(12.dp),
-                                color = Color(0xFFF1F5F9),
+                                color = Color(0xFF141F3D),
                                 modifier = Modifier.weight(1f)
                             ) {
                                 Column(modifier = Modifier.padding(10.dp)) {
                                     Text(
                                         text = if (isArabic) "أوقات العمل" else "Working Hours",
                                         fontSize = 11.sp,
-                                        color = Color(0xFF475569)
+                                        color = Color(0xFFB0B8D0)
                                     )
                                     Text(
                                         text = listing.workingHours,
                                         fontSize = 12.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF1E293B)
+                                        color = Color(0xFFE5E9F5)
                                     )
                                 }
                             }
@@ -256,7 +256,7 @@ fun DetailScreen(
             item {
                 Card(
                     shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Column(modifier = Modifier.padding(18.dp)) {
@@ -264,14 +264,14 @@ fun DetailScreen(
                             text = if (isArabic) "عن الخدمة والمحل" else "About Service",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF0F172A)
+                            color = Color(0xFFF1F5FF)
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
                             text = listing.description,
                             fontSize = 14.sp,
                             lineHeight = 22.sp,
-                            color = Color(0xFF334155)
+                            color = Color(0xFFC9D1E6)
                         )
                     }
                 }
@@ -281,7 +281,7 @@ fun DetailScreen(
             item {
                 Card(
                     shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Column(modifier = Modifier.padding(18.dp)) {
@@ -297,7 +297,7 @@ fun DetailScreen(
                                     "Customer Reviews (${listing.reviewsCount})",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF0F172A)
+                                color = Color(0xFFF1F5FF)
                             )
                             TextButton(onClick = { showReviewDialog = true }) {
                                 Text(
@@ -347,7 +347,7 @@ fun DetailScreen(
 fun ReviewItemRow(review: Review) {
     Surface(
         shape = RoundedCornerShape(12.dp),
-        color = Color(0xFFF8FAFC),
+        color = Color(0xFF060B1A),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -360,7 +360,7 @@ fun ReviewItemRow(review: Review) {
                     text = review.userName,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1E293B)
+                    color = Color(0xFFE5E9F5)
                 )
                 Row {
                     repeat(review.rating) {
@@ -377,13 +377,13 @@ fun ReviewItemRow(review: Review) {
             Text(
                 text = review.comment,
                 fontSize = 12.sp,
-                color = Color(0xFF475569)
+                color = Color(0xFFB0B8D0)
             )
             Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = review.date,
                 fontSize = 10.sp,
-                color = Color(0xFF94A3B8)
+                color = Color(0xFF8A93B0)
             )
         }
     }
@@ -419,7 +419,7 @@ fun AddReviewDialog(
                             Icon(
                                 imageVector = Icons.Default.Star,
                                 contentDescription = "$star stars",
-                                tint = if (star <= rating) AmberAccent else Color(0xFFCBD5E1),
+                                tint = if (star <= rating) AmberAccent else Color(0xFF3A4670),
                                 modifier = Modifier.size(28.dp)
                             )
                         }

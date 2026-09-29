@@ -6,10 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
+import androidx.activity.compose.BackHandler
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -20,8 +19,13 @@ import iq.waynha.app.ui.screens.AddListingScreen
 import iq.waynha.app.ui.screens.DetailScreen
 import iq.waynha.app.ui.screens.HomeScreen
 import iq.waynha.app.ui.screens.ProfileScreen
-import iq.waynha.app.ui.theme.SkyLight
-import iq.waynha.app.ui.theme.SkyPrimary
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
+import iq.waynha.app.model.CategoryType
+import iq.waynha.app.ui.components.IraqBottomBar
+import iq.waynha.app.ui.screens.LandingScreen
+import iq.waynha.app.ui.screens.MapScreen
 import iq.waynha.app.ui.theme.WaynhaTheme
 import iq.waynha.app.viewmodel.WaynhaViewModel
 
@@ -44,73 +48,75 @@ class MainActivity : ComponentActivity() {
 fun MainAppContent(viewModel: WaynhaViewModel) {
     val isArabic by viewModel.isArabic.collectAsState()
     val selectedListing by viewModel.selectedListing.collectAsState()
-    var currentTab by remember { mutableStateOf(0) }
+    // التبويبات: 0 بحث، 1 خريطة، 2 رئيسية، 3 وظائف، 4 حسابي
+    var currentTab by remember { mutableStateOf(2) }
+    var showAdd by remember { mutableStateOf(false) }
 
-    if (selectedListing != null) {
-        DetailScreen(
-            listing = selectedListing!!,
-            viewModel = viewModel,
-            onBack = { viewModel.selectListing(null) }
-        )
-    } else {
-        Scaffold(
-            bottomBar = {
-                NavigationBar(
-                    containerColor = Color.White,
-                    tonalElevation = 6.dp
-                ) {
-                    NavigationBarItem(
-                        selected = currentTab == 0,
-                        onClick = { currentTab = 0 },
-                        icon = { Icon(Icons.Default.Home, contentDescription = null) },
-                        label = { Text(if (isArabic) "الرئيسية" else "Home") },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = SkyPrimary,
-                            selectedTextColor = SkyPrimary,
-                            indicatorColor = SkyLight
-                        )
-                    )
-
-                    NavigationBarItem(
-                        selected = currentTab == 1,
-                        onClick = { currentTab = 1 },
-                        icon = { Icon(Icons.Default.AddCircle, contentDescription = null) },
-                        label = { Text(if (isArabic) "أضف إعلان" else "Add Ad") },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = SkyPrimary,
-                            selectedTextColor = SkyPrimary,
-                            indicatorColor = SkyLight
-                        )
-                    )
-
-                    NavigationBarItem(
-                        selected = currentTab == 2,
-                        onClick = { currentTab = 2 },
-                        icon = { Icon(Icons.Default.Person, contentDescription = null) },
-                        label = { Text(if (isArabic) "حسابي" else "Profile") },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = SkyPrimary,
-                            selectedTextColor = SkyPrimary,
-                            indicatorColor = SkyLight
-                        )
-                    )
+    CompositionLocalProvider(
+        LocalLayoutDirection provides if (isArabic) LayoutDirection.Rtl else LayoutDirection.Ltr
+    ) {
+        if (selectedListing != null) {
+            DetailScreen(
+                listing = selectedListing!!,
+                viewModel = viewModel,
+                onBack = { viewModel.selectListing(null) }
+            )
+        } else if (showAdd) {
+            BackHandler { showAdd = false }
+            AddListingScreen(
+                viewModel = viewModel,
+                onListingAdded = { showAdd = false; currentTab = 0 }
+            )
+        } else {
+            Scaffold(
+                containerColor = Color(0xFF060B1A),
+                bottomBar = {
+                    IraqBottomBar(selected = currentTab, isArabic = isArabic) { tab ->
+                        if (tab == 3) viewModel.selectCategory(CategoryType.JOBS)
+                        if (tab == 0 && currentTab == 3) viewModel.selectCategory(CategoryType.ALL)
+                        currentTab = tab
+                    }
                 }
-            }
-        ) { innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)) {
-                when (currentTab) {
-                    0 -> HomeScreen(
-                        viewModel = viewModel,
-                        onSelectListing = { viewModel.selectListing(it) }
-                    )
-                    1 -> AddListingScreen(
-                        viewModel = viewModel,
-                        onListingAdded = { currentTab = 0 }
-                    )
-                    2 -> ProfileScreen(
-                        viewModel = viewModel,
-                        onSelectListing = { viewModel.selectListing(it) }
-                    )
+            ) { innerPadding ->
+                Box(modifier = Modifier.padding(innerPadding)) {
+                    when (currentTab) {
+                        0, 3 -> HomeScreen(
+                            viewModel = viewModel,
+                            onSelectListing = { viewModel.selectListing(it) }
+                        )
+                        1 -> MapScreen(
+                            viewModel = viewModel,
+                            onOpenDetails = { viewModel.selectListing(it) }
+                        )
+                        2 -> LandingScreen(
+                            isArabic = isArabic,
+                            onSearch = { viewModel.selectCategory(CategoryType.ALL); currentTab = 0 },
+                            onNearMe = { currentTab = 1 },
+                            onAiSearch = { viewModel.selectCategory(CategoryType.ALL); currentTab = 0 },
+                            onCategory = { cat ->
+                                viewModel.selectCategory(cat)
+                                currentTab = if (cat == CategoryType.JOBS) 3 else 0
+                            },
+                            onMap = { currentTab = 1 },
+                            onToggleLanguage = { viewModel.toggleLanguage() }
+                        )
+                        4 -> Box {
+                            ProfileScreen(
+                                viewModel = viewModel,
+                                onSelectListing = { viewModel.selectListing(it) }
+                            )
+                            ExtendedFloatingActionButton(
+                                onClick = { showAdd = true },
+                                containerColor = Color(0xFFFFC21A),
+                                contentColor = Color(0xFF060B1A),
+                                modifier = Modifier.align(Alignment.BottomStart).padding(16.dp)
+                            ) {
+                                Icon(Icons.Default.AddCircle, contentDescription = null)
+                                Spacer(Modifier.width(8.dp))
+                                Text(if (isArabic) "أضف إعلانك" else "Add listing")
+                            }
+                        }
+                    }
                 }
             }
         }

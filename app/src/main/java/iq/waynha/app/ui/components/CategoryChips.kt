@@ -59,12 +59,12 @@ fun CategoryChips(
                     selectedContainerColor = SkyPrimary,
                     selectedLabelColor = Color.White,
                     selectedLeadingIconColor = Color.White,
-                    containerColor = Color.White,
-                    labelColor = Color(0xFF334155),
+                    containerColor = Color(0xFF0D1730),
+                    labelColor = Color(0xFFC9D1E6),
                     iconColor = SkyPrimary
                 ),
                 border = FilterChipDefaults.filterChipBorder(
-                    borderColor = if (isSelected) SkyPrimary else Color(0xFFE2E8F0),
+                    borderColor = if (isSelected) SkyPrimary else Color(0xFF24305A),
                     selectedBorderColor = SkyPrimary,
                     borderWidth = 1.dp,
                     enabled = true,
@@ -86,5 +86,13 @@ private fun getCategoryIcon(category: CategoryType): ImageVector {
         CategoryType.JOBS -> Icons.Default.Work
         CategoryType.SHOPS -> Icons.Default.Storefront
         CategoryType.SERVICES -> Icons.Default.Handyman
+        CategoryType.COMPANIES -> Icons.Default.Business
+        CategoryType.HOSPITALS -> Icons.Default.LocalHospital
+        CategoryType.PHARMACY -> Icons.Default.Medication
+        CategoryType.SCHOOLS -> Icons.Default.School
+        CategoryType.TEACHERS -> Icons.Default.Person
+        CategoryType.OFFERS -> Icons.Default.LocalOffer
+        CategoryType.FUEL -> Icons.Default.LocalGasStation
+        CategoryType.PUBLIC_PLACES -> Icons.Default.Park
     }
 }

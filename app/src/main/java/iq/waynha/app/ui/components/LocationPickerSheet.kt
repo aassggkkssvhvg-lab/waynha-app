@@ -40,7 +40,7 @@ fun LocationPickerSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
-        containerColor = Color.White
+        containerColor = Color(0xFF0D1730)
     ) {
         Column(
             modifier = Modifier
@@ -63,7 +63,7 @@ fun LocationPickerSheet(
                         text = if (isArabic) "اختر المحافظة والمنطقة في العراق" else "Select Governorate & District in Iraq",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF0F172A)
+                        color = Color(0xFFF1F5FF)
                     )
                 }
                 IconButton(onClick = onDismiss) {
@@ -92,7 +92,7 @@ fun LocationPickerSheet(
                     val isChosen = gov.id == tempGov.id
                     Surface(
                         shape = RoundedCornerShape(12.dp),
-                        color = if (isChosen) SkyPrimary else Color(0xFFF1F5F9),
+                        color = if (isChosen) SkyPrimary else Color(0xFF141F3D),
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable { tempGov = gov }
@@ -105,7 +105,7 @@ fun LocationPickerSheet(
                                 text = if (isArabic) gov.nameAr else gov.nameEn,
                                 fontSize = 12.sp,
                                 fontWeight = if (isChosen) FontWeight.Bold else FontWeight.Medium,
-                                color = if (isChosen) Color.White else Color(0xFF334155)
+                                color = if (isChosen) Color.White else Color(0xFFC9D1E6)
                             )
                         }
                     }
@@ -131,7 +131,7 @@ fun LocationPickerSheet(
                     val isSelected = tempGov.id == selectedGov.id && district == selectedDistrict
                     Surface(
                         shape = RoundedCornerShape(10.dp),
-                        color = if (isSelected) SkyLight else Color(0xFFF8FAFC),
+                        color = if (isSelected) SkyLight else Color(0xFF060B1A),
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
@@ -150,7 +150,7 @@ fun LocationPickerSheet(
                                 text = district,
                                 fontSize = 13.sp,
                                 fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
-                                color = if (isSelected) SkyPrimary else Color(0xFF1E293B)
+                                color = if (isSelected) SkyPrimary else Color(0xFFE5E9F5)
                             )
                             if (isSelected) {
                                 Icon(

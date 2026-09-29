@@ -40,7 +40,7 @@ fun ListingCard(
 
     Card(
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1730)),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         modifier = modifier
             .fillMaxWidth()
@@ -59,7 +59,7 @@ fun ListingCard(
                             text = listing.title,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF0F172A),
+                            color = Color(0xFFF1F5FF),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(1f, fill = false)
@@ -68,7 +68,7 @@ fun ListingCard(
                             Spacer(modifier = Modifier.width(6.dp))
                             Surface(
                                 shape = RoundedCornerShape(6.dp),
-                                color = Color(0xFFECFDF5)
+                                color = Color(0xFF0F3A2A)
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
@@ -104,7 +104,7 @@ fun ListingCard(
                         Text(
                             text = "${listing.governorate} • ${listing.district}",
                             fontSize = 12.sp,
-                            color = Color(0xFF64748B)
+                            color = Color(0xFFA0A8C0)
                         )
                         if (distanceKm != null) {
                             Text(
@@ -120,7 +120,7 @@ fun ListingCard(
                 // Rating & Star
                 Surface(
                     shape = RoundedCornerShape(10.dp),
-                    color = Color(0xFFFFFBEB),
+                    color = Color(0xFF3A2E0A),
                     modifier = Modifier.padding(start = 8.dp)
                 ) {
                     Row(
@@ -138,7 +138,7 @@ fun ListingCard(
                             text = String.format("%.1f", listing.rating),
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF92400E)
+                            color = Color(0xFFFFC21A)
                         )
                     }
                 }
@@ -150,7 +150,7 @@ fun ListingCard(
             Text(
                 text = listing.description,
                 fontSize = 13.sp,
-                color = Color(0xFF475569),
+                color = Color(0xFFB0B8D0),
                 lineHeight = 18.sp,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis

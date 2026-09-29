@@ -47,7 +47,7 @@ fun QuickSearchChips(
             text = if (isArabic) "عمليات بحث شائعة في العراق" else "Popular Searches in Iraq",
             fontSize = 13.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF334155),
+            color = Color(0xFFC9D1E6),
             modifier = Modifier.padding(horizontal = 4.dp, vertical = 6.dp)
         )
 
@@ -69,11 +69,11 @@ fun QuickSearchChips(
                     },
                     shape = RoundedCornerShape(12.dp),
                     colors = SuggestionChipDefaults.suggestionChipColors(
-                        containerColor = Color.White,
-                        labelColor = Color(0xFF1E293B)
+                        containerColor = Color(0xFF0D1730),
+                        labelColor = Color(0xFFE5E9F5)
                     ),
                     border = SuggestionChipDefaults.suggestionChipBorder(
-                        borderColor = Color(0xFFCBD5E1),
+                        borderColor = Color(0xFF3A4670),
                         borderWidth = 1.dp,
                         enabled = true
                     )
