@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -23,7 +25,7 @@ android {
 
     // التوقيع: ضع ملف keystore.properties بجذر المشروع (storeFile, storePassword, keyAlias, keyPassword)
     // وإلا يُستخدم مفتاح debug للتجربة فقط. لا تنشر على Google Play بمفتاح debug.
-    val ksProps = java.util.Properties().apply {
+    val ksProps = Properties().apply {
         val f = rootProject.file("keystore.properties")
         if (f.exists()) f.inputStream().use { load(it) }
     }
