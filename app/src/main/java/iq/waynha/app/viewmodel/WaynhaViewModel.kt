@@ -41,14 +41,24 @@ class WaynhaViewModel : ViewModel() {
 
     val allListings = ListingRepository.listings
 
+    private data class FilterInputs(
+        val listings: List<Listing>,
+        val query: String,
+        val gov: Governorate,
+        val district: String,
+        val category: CategoryType
+    )
+
     val filteredListings: StateFlow<List<Listing>> = combine(
         allListings,
         _searchQuery,
         _selectedGovernorate,
         _selectedDistrict,
-        _selectedCategory,
-        _userCoordinates
-    ) { listings, query, gov, district, category, coords ->
+        _selectedCategory
+    ) { listings, query, gov, district, category ->
+        FilterInputs(listings, query, gov, district, category)
+    }.combine(_userCoordinates) { inputs, coords ->
+        val (listings, query, gov, district, category) = inputs
         val q = query.trim().lowercase()
         val isBaghdad = gov.id == "baghdad"
 
