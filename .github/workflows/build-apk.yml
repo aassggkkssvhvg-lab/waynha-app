@@ -1,55 +1,52 @@
-name: Build Android (APK + AAB)
+name: Build APK
 
 on:
   push:
-    branches: [main, master]
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Apply uploaded zip (if any)
+      - name: Check project zip
+        id: chk
         run: |
-          ZIP=$(ls *.zip 2>/dev/null | head -1 || true)
-          if [ -n "$ZIP" ]; then
-            mkdir -p /tmp/upd
-            unzip -q -o "$ZIP" -d /tmp/upd
-            SRC=$(find /tmp/upd -maxdepth 3 -name settings.gradle.kts -printf '%h\n' | head -1)
-            echo "Project folder inside zip: $SRC"
-            rsync -a --exclude '.github' "$SRC"/ ./
-            rm -f "$ZIP"
-            git config user.name "github-actions"
-            git config user.email "actions@github.com"
-            git add -A
-            git commit -m "Apply project update"
-            git push
+          if [ -f mx.zip ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            unzip -oq mx.zip -d mx
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "mx.zip not uploaded yet - skipping build"
           fi
 
-      - uses: actions/setup-java@v4
+      - name: Set up Java
+        if: steps.chk.outputs.found == 'true'
+        uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          distribution: temurin
+          java-version: 17
 
-      - uses: gradle/actions/setup-gradle@v4
+      - name: Set up Android SDK
+        if: steps.chk.outputs.found == 'true'
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Gradle
+        if: steps.chk.outputs.found == 'true'
+        uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.11.1'
+          gradle-version: "8.9"
 
-      - name: Build Debug APK + Release AAB
-        run: gradle assembleDebug bundleRelease --stacktrace
+      - name: Build debug APK
+        if: steps.chk.outputs.found == 'true'
+        run: cd mx && gradle assembleDebug --no-daemon
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload APK
+        if: steps.chk.outputs.found == 'true'
+        uses: actions/upload-artifact@v4
         with:
-          name: iraq-mix-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: iraq-mix-release-aab
-          path: app/build/outputs/bundle/release/app-release.aab
+          name: MX-AI-apk
+          path: mx/app/build/outputs/apk/debug/*.apk
           
